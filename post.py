@@ -45,8 +45,11 @@ def device_check(offset): # Check If Device Is Official & Updates Message ID
                     sendPost(i["message"]["text"][9::]) # Returns Only codeName and slice '/release'
             except KeyError: # Prevent Sudden Crash Of Program Due To Key Error In Case Of No 'text' Field
                 continue
-    if data["result"]: # Updates Offset
-        return data["result"][-1]["update_id"] + 1
+    try:
+        if data["result"]: # Updates Offset
+            return data["result"][-1]["update_id"] + 1
+    except KeyError:
+        offset = data["result"][-1]["update_id"] + 1
 offset = 0
 while True:
     offset = device_check(offset) 
