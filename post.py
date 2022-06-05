@@ -1,16 +1,16 @@
 import requests
 import ast
 from datetime import date
-base_url = "https://api.telegram.org/bot{BOTAPIHERE}/" # Used To Control Bot Via Telegram Bot API
+base_url = "https://api.telegram.org/bot5476661078:AAGMypOBn6mPIF54j-HnQi7hNfOd5BPPMTM/" # Used To Control Bot Via Telegram Bot API
 def sendPost(codeName): # Used To Generate Rom Post
     today = date.today() # Fetches Date From System
     buildDate = today.strftime("%b-%d-%Y") # Modifies Date In Required Format
-    database = requests.get("{Get Your Official device.json and Paste Link Here}") # Check ProjectBlaze device.json for reference
+    database = requests.get("https://raw.githubusercontent.com/ProjectBlaze/official_devices/12.1/post/device.json") # Check ProjectBlaze device.json for reference
     data = database.text # Convert Returned Response To String
     res = ast.literal_eval(data) # Convert String To Dictionary
     banner = open("images/pic.png", "rb") # Opens Banner Image
     parameters = {
-        "chat_id" : "{CHATID}",  # Use getUpdates to obtain chat_id of group
+        "chat_id" : "-1001502290877",  # Use getUpdates to obtain chat_id of group
         "caption" : '''<b>Project Blaze v{} - OFFICIAL | Android 12L
 📲 : {} ({})
 📅 : {}
@@ -35,7 +35,7 @@ def device_check(offset): # Check If Device Is Official & Updates Message ID
     parameters = {
         "offset" : offset
     }
-    official_devices = ["surya","onclite","sweet","davinci","santoni"] # Add Your Official Devices Here
+    official_devices = ["surya","onclite","sweet","davinci","santoni","vince"] # Add Your Official Devices Here
     resp = requests.get(base_url+"getUpdates", data = parameters) # getUpdates fetches updates from URL
     data = resp.json() # Converts resp to json
     for i in data["result"]: # Basic Loops To Iterate And Check For Official Devices
