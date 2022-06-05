@@ -8,7 +8,7 @@ def sendPost(codeName): # Used To Generate Rom Post
     database = requests.get("https://raw.githubusercontent.com/ProjectBlaze/official_devices/12.1/post/device.json") # Check ProjectBlaze device.json for reference
     data = database.text # Convert Returned Response To String
     res = ast.literal_eval(data) # Convert String To Dictionary
-    banner = open("images/pic.png", "rb") # Opens Banner Image
+    banner = open("images/pic.jpg", "rb") # Opens Banner Image
     parameters = {
         "chat_id" : "-1001502290877",  # Use getUpdates to obtain chat_id of group
         "caption" : '''<b>Project Blaze v{} - OFFICIAL | Android 12L
